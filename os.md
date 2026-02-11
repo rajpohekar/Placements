@@ -678,3 +678,75 @@ Thrashing occurs in virtual memory systems when excessive page swapping happens.
 
 ---
 
+# 🖨 Spooling — Operating System Concept
+
+## 📌 Definition
+Spooling (Simultaneous Peripheral Operations On-Line) is a technique where data is temporarily stored in a buffer (usually disk) so that slow devices can process tasks sequentially while the CPU continues executing other processes.
+
+It is mainly used for I/O devices like printers.
+
+---
+
+## 🧠 Core Idea
+
+Instead of sending tasks directly to a slow device:
+
+Process → Disk Queue → Device
+
+The OS collects multiple requests, stores them on disk, and feeds them to the device one by one.
+
+---
+
+## ⚙️ How Spooling Works (Step Flow)
+
+1. Multiple programs send output requests.
+2. OS stores these requests in a spool (disk file or queue).
+3. A spooler program manages the queue.
+4. Device (e.g., printer) processes jobs sequentially.
+
+---
+
+## 🖥 Example — Printer Spooling
+
+Without spooling:
+- Only one program can print at a time.
+- CPU may wait until printing finishes.
+
+With spooling:
+- Many print jobs stored in queue.
+- Printer works continuously.
+- CPU stays free for other tasks.
+
+---
+
+## 🎯 Advantages
+
+- Improves device utilization.
+- Allows multitasking during slow I/O.
+- Prevents CPU idle time.
+- Organizes job execution using queues.
+
+---
+
+## ⚠️ Disadvantages
+
+- Requires extra disk space.
+- Queue management overhead.
+
+---
+
+## 📊 Spooling vs Buffering
+
+| Feature | Spooling | Buffering |
+|---|---|---|
+| Storage | Disk | Memory (RAM) |
+| Purpose | Queue multiple jobs | Smooth data transfer |
+| Example | Print queue | Video streaming buffer |
+
+---
+
+## ⭐ Interview One-Line Definition
+
+Spooling is a technique where I/O operations are queued on disk so that slow devices can process jobs sequentially while the CPU continues executing other tasks.
+
+---
